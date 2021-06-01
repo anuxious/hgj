@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Share+Tech+Mono'><link rel="stylesheet" href="./styles.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">  
+    <title>Vasanth Vanan • Portfolio</title>
+  </head>
+  <body>
+    <center><h1>Terminal-based Portfolio</h1></center>
+    <div class="container">
+      <div class="row">
+        <div class="col-5">
+          <section class="buttonGroup">
+            <section class="imageDisplay">
+             <div class="aspect">
+              &emsp;&emsp;&emsp;&emsp;<img src="img/icon.png" onclick="about()" height="200vw;" width="200vw;">
+              </div>
+              <div class="aspect">
+                <br><br><img src="img/whoami.png" width="300vw;"><br><br>
+                <img src="img/crontab.png" width="520vw;">
+                </div><br>
+            <section class="setButtons">&emsp;&emsp;
+            <button onclick="myFunction()">Education</button>&emsp;
+            <button onclick="myFunction3()">Experience</button>&emsp;
+            <button onclick="myFunction2()">Skills</button>
+            <br> <br>
+          </section>
+          <section class="setButtons">&emsp;&emsp;
+            <button onclick="myFunction6()">Projects</button>&emsp;
+            <button onclick="myFunction5()">Awards</button>&emsp;
+            <button onclick="myFunction4()">Contact</button>
+            </section>
+
+             </section>
+        </div>
+        <div class="col-7">
+          
+          <div class="typewriter" id="education">
+          </div>
+          </section>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <script src="./education.js"></script>
+    <script src="./skills.js"></script>
+    <script src="./experience.js"></script>
+    <script src="./contact.js"></script>
+    <script src="./awards.js"></script>
+    <script src="./projects.js"></script>
+
+  </body>
+</html>
+
+<script>
+  var aText = new Array(
+  "<br><br><br><b><h5 style='color:#ff0000'>root@vasanth-vanan <b style='color:#7279fc'>~/</b><b style='color:#fff'>$ <b><text style='color:#0f0'>cd vasanth-vanan/about</text></h5>", 
+  "<b><h5 style='color:#ff0000'>root@vasanth-vanan <b style='color:#7279fc'>~/vasanth-vanan/about</b><b style='color:#fff'>$ <b><text style='color:#0f0'>cat about.md</text></h5><br>",
+  "Vasanth Vanan is a IT Professional who loves to learn, innovate & improve the existing Technology. Vasanth is much interested in the work of Full Stack Web development and PenTesting.<br>",
+  "<br><p><b style='color:#7279fc'># Current Work:</b> Front-End Developer in IBM</p>",
+  "<p><b style='color:#7279fc'># Tech Stack: </b>Angular, Laravel, Spark & Scala</p>",
+  "<p><b style='color:#7279fc'># Current Research:</b> Privacy, Security & Anonymity</p>",
+  "<p><b style='color:#7279fc'># Hobby:</b> Video & Content Creation</p>",
+  "<p><b style='color:#fff'>You can read blogs written by Vasanth: </b><a href='https://bit.ly/3vXDzib'>[Medium]</a><b style='color:#4287f5'>(https://medium.com/@vasanthavanan59439) </b></p>",
+  "<p><b style='color:#ffffff'>View his </b><a href='https://bit.ly/3vUXcYg'>[LinkedIn Profile]</a><b style='color:#4287f5'>(https://www.linkedin.com/in/vasanthavanan/) </b></p>",
+  "<b><h5 style='color:#ff0000'>root@vasanth-vanan <b style='color:#7279fc'>~/vasanth-vanan/about</b><b style='color:#fff'>$ <text style='color:#0f0'>exit</text><b></h5>",
+  "<text style='color:#0f0'>returned exit status 1</text>"
+  );
+  var iSpeed = 0; // time delay of print out
+  var iIndex = 0; // start printing array at this posision
+  var iArrLength = aText[0].length; // the length of the text array
+  var iScrollAt = 20; // start scrolling up at this many lines
+  
+  var iTextPos = 0; // initialise text position
+  var sContents = ''; // initialise contents variable
+  var iRow; // initialise current row
+  
+  function typewriter(){
+  sContents =  ' ';
+  iRow = Math.max(0, iIndex-iScrollAt);
+  var destination = document.getElementById("education");
+  
+  while ( iRow < iIndex ) {
+    sContents += aText[iRow];
+    iRow++;
+  }
+  destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
+  if (iTextPos++ == iArrLength){
+    iTextPos = 0;
+    iIndex++;
+    if ( iIndex != aText.length ) {
+    iArrLength = aText[iIndex].length;
+    setTimeout("typewriter()", 500);
+    }
+  } else {
+    setTimeout("typewriter()", iSpeed);
+  }
+  }
+  
+  typewriter();
+
+  function about(){
+     iSpeed = 0; // time delay of print out
+     iIndex = 0; // start printing array at this posision
+     iArrLength = aText[0].length; // the length of the text array
+     iScrollAt = 20; // start scrolling up at this many lines
+    
+     iTextPos = 0; // initialise text position
+     sContents = ''; // initialise contents variable
+     iRow; // initialise current row
+     typewriter();
+  }
+
+</script>
